@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="793492f33da9406787ef7b275513ef2f" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Account" Width="1.5" PointX="8" PointY="7.25" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Client" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Component" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Employee" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Order" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_OrderComponent" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_OrderTypeWork" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_Role" Width="1.5" PointX="5.75" PointY="7.5" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_TypeComponent" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="DataBaseModel.Diplom_TypeWork" Width="1.5" PointX="3" PointY="7.625" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_Account_Diplom_Role" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_Order_Diplom_Client" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_Component_Diplom_TypeComponent" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_OrderComponent_Diplom_Component" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_Order_Diplom_Employee" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_OrderComponent_Diplom_Order" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_OrderTypeWork_Diplom_Order" />
+        <AssociationConnector Association="DataBaseModel.FK_Diplom_OrderTypeWork_Diplom_TypeWork" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

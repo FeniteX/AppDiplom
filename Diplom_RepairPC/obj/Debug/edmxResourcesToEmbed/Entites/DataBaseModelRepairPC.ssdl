@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Diplom_Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DiscountCard" Type="bit" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_Component">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Characteristics" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="IDTypeComponent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CostWork" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDClient" Type="int" Nullable="false" />
+    <Property Name="IDEmployee" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="DateOrderStart" Type="date" Nullable="false" />
+    <Property Name="DateOrderEnd" Type="date" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_OrderComponent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDOrder" Type="int" Nullable="false" />
+    <Property Name="IDComponent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_OrderTypeWork">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDOrder" Type="int" Nullable="false" />
+    <Property Name="IDTypeWork" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_TypeComponent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diplom_TypeWork">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="TimeWork" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Diplom_Account_Diplom_Role">
+    <End Role="Diplom_Role" Type="Self.Diplom_Role" Multiplicity="1" />
+    <End Role="Diplom_Account" Type="Self.Diplom_Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_Account">
+        <PropertyRef Name="IDRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_Component_Diplom_TypeComponent">
+    <End Role="Diplom_TypeComponent" Type="Self.Diplom_TypeComponent" Multiplicity="1" />
+    <End Role="Diplom_Component" Type="Self.Diplom_Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_TypeComponent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_Component">
+        <PropertyRef Name="IDTypeComponent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_Order_Diplom_Client">
+    <End Role="Diplom_Client" Type="Self.Diplom_Client" Multiplicity="1" />
+    <End Role="Diplom_Order" Type="Self.Diplom_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_Order">
+        <PropertyRef Name="IDClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_Order_Diplom_Employee">
+    <End Role="Diplom_Employee" Type="Self.Diplom_Employee" Multiplicity="1" />
+    <End Role="Diplom_Order" Type="Self.Diplom_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_Order">
+        <PropertyRef Name="IDEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_OrderComponent_Diplom_Component">
+    <End Role="Diplom_Component" Type="Self.Diplom_Component" Multiplicity="1" />
+    <End Role="Diplom_OrderComponent" Type="Self.Diplom_OrderComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Component">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_OrderComponent">
+        <PropertyRef Name="IDComponent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_OrderComponent_Diplom_Order">
+    <End Role="Diplom_Order" Type="Self.Diplom_Order" Multiplicity="1" />
+    <End Role="Diplom_OrderComponent" Type="Self.Diplom_OrderComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Order">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_OrderComponent">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_OrderTypeWork_Diplom_Order">
+    <End Role="Diplom_Order" Type="Self.Diplom_Order" Multiplicity="1" />
+    <End Role="Diplom_OrderTypeWork" Type="Self.Diplom_OrderTypeWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_Order">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_OrderTypeWork">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diplom_OrderTypeWork_Diplom_TypeWork">
+    <End Role="Diplom_TypeWork" Type="Self.Diplom_TypeWork" Multiplicity="1" />
+    <End Role="Diplom_OrderTypeWork" Type="Self.Diplom_OrderTypeWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplom_TypeWork">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diplom_OrderTypeWork">
+        <PropertyRef Name="IDTypeWork" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataBaseModelStoreContainer">
+    <EntitySet Name="Diplom_Account" EntityType="Self.Diplom_Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_Client" EntityType="Self.Diplom_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_Component" EntityType="Self.Diplom_Component" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_Employee" EntityType="Self.Diplom_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_Order" EntityType="Self.Diplom_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_OrderComponent" EntityType="Self.Diplom_OrderComponent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_OrderTypeWork" EntityType="Self.Diplom_OrderTypeWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_Role" EntityType="Self.Diplom_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_TypeComponent" EntityType="Self.Diplom_TypeComponent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diplom_TypeWork" EntityType="Self.Diplom_TypeWork" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Diplom_Account_Diplom_Role" Association="Self.FK_Diplom_Account_Diplom_Role">
+      <End Role="Diplom_Role" EntitySet="Diplom_Role" />
+      <End Role="Diplom_Account" EntitySet="Diplom_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_Component_Diplom_TypeComponent" Association="Self.FK_Diplom_Component_Diplom_TypeComponent">
+      <End Role="Diplom_TypeComponent" EntitySet="Diplom_TypeComponent" />
+      <End Role="Diplom_Component" EntitySet="Diplom_Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_Order_Diplom_Client" Association="Self.FK_Diplom_Order_Diplom_Client">
+      <End Role="Diplom_Client" EntitySet="Diplom_Client" />
+      <End Role="Diplom_Order" EntitySet="Diplom_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_Order_Diplom_Employee" Association="Self.FK_Diplom_Order_Diplom_Employee">
+      <End Role="Diplom_Employee" EntitySet="Diplom_Employee" />
+      <End Role="Diplom_Order" EntitySet="Diplom_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_OrderComponent_Diplom_Component" Association="Self.FK_Diplom_OrderComponent_Diplom_Component">
+      <End Role="Diplom_Component" EntitySet="Diplom_Component" />
+      <End Role="Diplom_OrderComponent" EntitySet="Diplom_OrderComponent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_OrderComponent_Diplom_Order" Association="Self.FK_Diplom_OrderComponent_Diplom_Order">
+      <End Role="Diplom_Order" EntitySet="Diplom_Order" />
+      <End Role="Diplom_OrderComponent" EntitySet="Diplom_OrderComponent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_OrderTypeWork_Diplom_Order" Association="Self.FK_Diplom_OrderTypeWork_Diplom_Order">
+      <End Role="Diplom_Order" EntitySet="Diplom_Order" />
+      <End Role="Diplom_OrderTypeWork" EntitySet="Diplom_OrderTypeWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diplom_OrderTypeWork_Diplom_TypeWork" Association="Self.FK_Diplom_OrderTypeWork_Diplom_TypeWork">
+      <End Role="Diplom_TypeWork" EntitySet="Diplom_TypeWork" />
+      <End Role="Diplom_OrderTypeWork" EntitySet="Diplom_OrderTypeWork" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

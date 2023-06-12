@@ -1,0 +1,108 @@
+﻿<Window x:Class="Diplom_RepairPC.Windows.AddClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_RepairPC.Windows"
+        mc:Ignorable="d"
+        Title="Добавление клиента" Height="600" Width="350" MinHeight="600" MinWidth="350"
+        Closing="Window_Closing">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFB795DA" Offset="1"/>
+            <GradientStop Color="#FF6722AF"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Фамилия:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxSurname"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Имя:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxName"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Отчество:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxSecondName"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Телефон:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxPhone"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Email:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxEmail"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Скидочная карта:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxCard"
+                             ToolTip="Укажите 0 если клиент не имеет карты или 1 если имеет"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Адрес:" Style="{StaticResource TextBlockWhite}"/>
+                <Border Style="{StaticResource BorderTextBox}" Grid.Column="1">
+                    <TextBox x:Name="TextBoxAdress"/>
+                </Border>
+            </Grid>
+            <Border Style="{StaticResource BorderButton}">
+                <Button x:Name="BtnSave" Content="Сохранить"
+                        Click="BtnSave_Click"/>
+            </Border>
+            <Border Style="{StaticResource BorderButton}">
+                <Button x:Name="BtnCancel" Content="Назад"
+                        Click="BtnCancel_Click"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

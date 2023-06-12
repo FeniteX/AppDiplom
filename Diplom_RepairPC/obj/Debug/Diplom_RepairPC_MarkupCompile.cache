@@ -1,0 +1,20 @@
+﻿Diplom_RepairPC
+
+
+winexe
+C#
+.cs
+F:\4 курс\2 семестр\Диплом\Diplom_RepairPC\Diplom_RepairPC\obj\Debug\
+Diplom_RepairPC
+none
+false
+DEBUG;TRACE
+F:\4 курс\2 семестр\Диплом\Diplom_RepairPC\Diplom_RepairPC\App.xaml
+24-1633591688
+21529857643
+53-1052962834
+19-846618376
+MainWindow.xaml;Pages\AddEditClientPage.xaml;Pages\AddEditComponentPage.xaml;Pages\AddEditEmployeePage.xaml;Pages\AddEditTypeComponentPage.xaml;Pages\AddEditTypeWorkPage.xaml;Pages\AddOrderAdminPage.xaml;Pages\AddOrderPage.xaml;Pages\AdminPage.xaml;Pages\AutorPage.xaml;Pages\ClientsPage.xaml;Pages\ComponentsPage.xaml;Pages\CreatedOrderPage.xaml;Pages\EditOrderEmployeePage.xaml;Pages\EditOrderPage.xaml;Pages\EmployeePage.xaml;Pages\EmployeesPage.xaml;Pages\OrdersPage.xaml;Pages\TypesComponentPage.xaml;Pages\TypesWorkPage.xaml;Windows\AddClientWindow.xaml;Windows\CharacteristicsComponentWindow.xaml;Windows\CreatedOrderWindow.xaml;Windows\OrderDetalied.xaml;
+
+False
+

@@ -1,0 +1,161 @@
+﻿<Page x:Class="Diplom_RepairPC.Pages.CreatedOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom_RepairPC.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <ListView x:Name="ListViewOrder" BorderThickness="0" Background="{x:Null}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="750">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="15" Padding="10" Background="#FFF4EDFF"
+                            Margin="5" Width="700">
+                        <Grid>
+                            <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Клиент:" HorizontalAlignment="Left" Width="120"/>
+                                    <TextBlock Text="{Binding Diplom_Client.FIO}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Сотрудник:" HorizontalAlignment="Left" Width="120"/>
+                                    <TextBlock Text="{Binding Diplom_Employee.FIO}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Стоимость общая:" HorizontalAlignment="Left" Width="120" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding CostOrder}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Услуги" Style="{StaticResource TextBlockWhite}"/>
+            <TextBlock Text="Комплектующие" Style="{StaticResource TextBlockWhite}" Grid.Column="1" x:Name="TextBlockComponent"/>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListView x:Name="ListViewOrderTypeWork" BorderThickness="0" Background="{x:Null}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="750">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="15" Padding="10" Background="#FFF4EDFF"
+                            Margin="5" Width="700">
+                            <Grid>
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Название:" HorizontalAlignment="Left" Width="120"/>
+                                        <TextBlock Text="{Binding Diplom_TypeWork.Name}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Стоимость:" HorizontalAlignment="Left" Width="120"/>
+                                        <TextBlock Text="{Binding Diplom_TypeWork.CostWork}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="ListViewOrderComponent" BorderThickness="0" Background="{x:Null}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="750">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="15" Padding="10" Background="#FFF4EDFF"
+                            Margin="5" Width="700">
+                            <Grid>
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Название:" HorizontalAlignment="Left" Width="120"/>
+                                        <TextBlock Text="{Binding Diplom_Component.Name}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Стоимость:" HorizontalAlignment="Left" Width="120"/>
+                                        <TextBlock Text="{Binding Diplom_Component.CostItem}" Grid.Column="1" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <Border Style="{StaticResource BorderButton}">
+            <Button x:Name="BtnSave" Content="Сохранить"
+                        Click="BtnSave_Click"/>
+        </Border>
+    </StackPanel>
+</Page>

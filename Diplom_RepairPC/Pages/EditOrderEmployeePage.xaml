@@ -1,0 +1,166 @@
+﻿<Page x:Class="Diplom_RepairPC.Pages.EditOrderEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom_RepairPC.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditOrderEmployeePage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Клиент:" Style="{StaticResource TextBlockWhite}"/>
+                    <ComboBox x:Name="ComboBoxClient" Grid.Column="1"
+                                DisplayMemberPath="FIO"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Сотрудник:" Style="{StaticResource TextBlockWhite}"/>
+                    <ComboBox x:Name="ComboBoxEmployee" Grid.Column="1"
+                                DisplayMemberPath="FIO"/>
+                </Grid>
+            </StackPanel>
+
+            <Border BorderBrush="#FFF4EDFF" Style="{StaticResource BorderButton}"
+                    Background="{x:Null}" BorderThickness="3" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Grid.Column="0" Margin="5">
+                        <TextBlock Text="Текущие услуги" Style="{StaticResource TextBlockWhite}"/>
+                        <DataGrid x:Name="DataGridTypeWork" AutoGenerateColumns="False"
+                                  IsReadOnly="True" Margin="10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Название" Binding="{Binding Diplom_TypeWork.Name}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Услуги:" Style="{StaticResource TextBlockWhite}"/>
+                            <ComboBox x:Name="ComboBoxTypeWork" Grid.Column="1"
+                                DisplayMemberPath="Name"/>
+                        </Grid>
+                        <Border Style="{StaticResource BorderButton}" HorizontalAlignment="Right">
+                            <Button x:Name="BtnAddTypeWork" Content="Добавить услугу"
+                                Click="BtnAddTypeWork_Click"/>
+                        </Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Добавленные:"
+                                Style="{StaticResource TextBlockWhite}"/>
+                            <ListView x:Name="ListViewTypeWork" Grid.Row="1" Margin="5"
+                                      MinWidth="200" Background="White"
+                                      MaxHeight="100">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Border Style="{StaticResource BorderButton}" HorizontalAlignment="Right"
+                                Grid.Column="1" Grid.Row="1">
+                                <Button x:Name="BtnCleanTypeWork" Content="Очистить"
+                                Click="BtnCleanTypeWork_Click"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Grid.Column="1" Margin="5">
+                        <TextBlock Text="Текущие комплектующие" Style="{StaticResource TextBlockWhite}"/>
+                        <DataGrid x:Name="DataGridComponent" AutoGenerateColumns="False"
+                                  IsReadOnly="True" Margin="10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Название" 
+                                                    Binding="{Binding Diplom_Component.Name}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Комплектующие:" Style="{StaticResource TextBlockWhite}"/>
+                            <ComboBox x:Name="ComboBoxComponent" Grid.Column="1"
+                                DisplayMemberPath="Name"/>
+                        </Grid>
+                        <Border Style="{StaticResource BorderButton}" HorizontalAlignment="Right">
+                            <Button x:Name="BtnAddComponent" 
+                                Content="Добавить комплектующее"
+                                Click="BtnAddComponent_Click"/>
+                        </Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Добавленные:"
+                                Style="{StaticResource TextBlockWhite}"/>
+                            <ListView x:Name="ListViewComponent" Grid.Row="1" Margin="5"
+                                      MinWidth="200" Background="White"
+                                      MaxHeight="100">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Border Style="{StaticResource BorderButton}" HorizontalAlignment="Right"
+                                Grid.Column="1" Grid.Row="1">
+                                <Button x:Name="BtnCleanComponent" Content="Очистить"
+                                    Click="BtnCleanComponent_Click"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource BorderButton}">
+                <Button x:Name="BtnEditOrder" Content="Изменить заказ"
+                        Click="BtnEditOrder_Click"/>
+            </Border>
+            <Border Style="{StaticResource BorderButton}">
+                <Button x:Name="BtnCancel" Content="Назад"
+                        Click="BtnCancel_Click"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBaseModelStoreContainer" CdmEntityContainer="DataBaseEntities">
+    <EntitySetMapping Name="Diplom_Account">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Account">
+        <MappingFragment StoreEntitySet="Diplom_Account">
+          <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_Client">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Client">
+        <MappingFragment StoreEntitySet="Diplom_Client">
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="DiscountCard" ColumnName="DiscountCard" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_Component">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Component">
+        <MappingFragment StoreEntitySet="Diplom_Component">
+          <ScalarProperty Name="IDTypeComponent" ColumnName="IDTypeComponent" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Characteristics" ColumnName="Characteristics" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_Employee">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Employee">
+        <MappingFragment StoreEntitySet="Diplom_Employee">
+          <ScalarProperty Name="CostWork" ColumnName="CostWork" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_Order">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Order">
+        <MappingFragment StoreEntitySet="Diplom_Order">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateOrderEnd" ColumnName="DateOrderEnd" />
+          <ScalarProperty Name="DateOrderStart" ColumnName="DateOrderStart" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
+          <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_OrderComponent">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_OrderComponent">
+        <MappingFragment StoreEntitySet="Diplom_OrderComponent">
+          <ScalarProperty Name="IDComponent" ColumnName="IDComponent" />
+          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_OrderTypeWork">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_OrderTypeWork">
+        <MappingFragment StoreEntitySet="Diplom_OrderTypeWork">
+          <ScalarProperty Name="IDTypeWork" ColumnName="IDTypeWork" />
+          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_Role">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_Role">
+        <MappingFragment StoreEntitySet="Diplom_Role">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_TypeComponent">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_TypeComponent">
+        <MappingFragment StoreEntitySet="Diplom_TypeComponent">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplom_TypeWork">
+      <EntityTypeMapping TypeName="DataBaseModel.Diplom_TypeWork">
+        <MappingFragment StoreEntitySet="Diplom_TypeWork">
+          <ScalarProperty Name="TimeWork" ColumnName="TimeWork" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

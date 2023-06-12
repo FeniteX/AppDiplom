@@ -1,0 +1,96 @@
+﻿<Page x:Class="Diplom_RepairPC.Pages.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom_RepairPC.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrdersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Сортировка по цене" Style="{StaticResource TextBlockWhite}"/>
+            <ComboBox x:Name="ComboBoxSortByCost" SelectionChanged="ComboBoxSortByCost_SelectionChanged">
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Поиск по ФИО сотрудника или клиента" Style="{StaticResource TextBlockWhite}"/>
+            <Border Style="{StaticResource BorderTextBox}">
+                <TextBox x:Name="TextBoxSearch" TextChanged="TextBoxSearch_TextChanged"/>
+            </Border>
+        </StackPanel>
+        
+        <DataGrid Grid.Row="1" x:Name="DataGridOrder" AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Клиент" Width="auto" Binding="{Binding Diplom_Client.FIO}"/>
+                <DataGridTextColumn Header="Сотрудник" Width="auto" Binding="{Binding Diplom_Employee.FIO}"/>
+                <DataGridTextColumn Header="Стоимоcть" Width="auto" Binding="{Binding CostOrder}"/>
+                <DataGridTextColumn Header="Дата начала" Width="auto" Binding="{Binding DateStart}"/>
+                <DataGridTextColumn Header="Дата окончания" Width="auto" Binding="{Binding DateEnd}"/>
+                <DataGridTextColumn Header="Статус" Width="auto" Binding="{Binding Status}"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="BtnDetalied" Text="Подробнее" Style="{StaticResource TextBlockUnderline}"
+                                       MouseUp="BtnDetalied_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="BtnEdit" Text="Редактировать" Style="{StaticResource TextBlockUnderline}"
+                                    MouseUp="BtnEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="BtnDel" Text="Удалить" Style="{StaticResource TextBlockUnderline}"
+                                    MouseUp="BtnDel_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Grid.Row="1" x:Name="DataGridOrders" AutoGenerateColumns="False"
+                  IsReadOnly="True" Visibility="Hidden" FontSize="0.01">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Клиент" Width="auto" Binding="{Binding Diplom_Client.FIO}"/>
+                <DataGridTextColumn Header="Сотрудник" Width="auto" Binding="{Binding Diplom_Employee.FIO}"/>
+                <DataGridTextColumn Header="Стоимоcть" Width="auto" Binding="{Binding Cost}"/>
+                <DataGridTextColumn Header="Дата начала заказа" Width="auto" Binding="{Binding DateOrderStart}"/>
+                <DataGridTextColumn Header="Дата окончания заказа" Width="auto" Binding="{Binding DateOrderEnd}"/>
+                <DataGridTextColumn Header="Статус" Width="auto" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Style="{StaticResource BorderButton}" Grid.Row="2"
+                HorizontalAlignment="Right">
+            <Button x:Name="BtnSaveExcel" Content="В Excel"
+                    Click="BtnSaveExcel_Click"/>
+        </Border>
+        <Border Style="{StaticResource BorderButton}" Grid.Row="3"
+                HorizontalAlignment="Right">
+            <Button x:Name="BtnAdd" Content="Добавить"
+                Click="BtnAdd_Click"/>
+        </Border>
+        <Border Style="{StaticResource BorderButton}" Grid.Row="3"
+                HorizontalAlignment="Left">
+            <Button x:Name="BtnBack" Content="Назад"
+                Click="BtnBack_Click"/>
+        </Border>
+    </Grid>
+</Page>
